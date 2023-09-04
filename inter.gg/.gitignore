@@ -1,0 +1,8 @@
+node_modules
+public
+src
+*.json
+*.env
+*.xml
+*.iml
+.idea
