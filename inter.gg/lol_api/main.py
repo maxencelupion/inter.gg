@@ -22,6 +22,7 @@ class Account:
 		url_pseudo = base_url + method_pseudo + self.username + "?api_key=" + api_key
 		api_response_text = requests.get(url_pseudo).text
 		api_response_json = json.loads(api_response_text)
+		print(api_response_json)
 		self.id = api_response_json["puuid"]
 
 
