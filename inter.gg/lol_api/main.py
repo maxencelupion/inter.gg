@@ -1,5 +1,5 @@
 import json
-
+import sys
 from dotenv import load_dotenv
 import requests
 import pandas as pd
@@ -48,11 +48,11 @@ def get_match_data(Account):
 		if (df["win"][position] == True):
 			win += 1
 	winrate = win / len(Account.games) * 100
-	print(f"Winrate : {winrate} %")
+	return(f"Winrate : {winrate} %")
 
 
 if __name__ == '__main__':
-	Account = Account(input("Entrez votre pseudo : \n"))
+	Account = Account(sys.argv[1])
 	Account.get_id()
-	Account.games = get_x_last_games(Account.id, 30)
+	Account.games = get_x_last_games(Account.id, sys.argv[2])
 	get_match_data(Account)
